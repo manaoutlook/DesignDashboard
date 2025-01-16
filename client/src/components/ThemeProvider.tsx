@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, useContext, useEffect, useState } from "react";
 
 type Theme = "dark" | "light" | "system";
@@ -23,12 +25,16 @@ export function ThemeProvider({
   children,
   defaultTheme = "system",
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem("theme") as Theme) || defaultTheme
-  );
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window !== 'undefined') {
+      return (localStorage.getItem("theme") as Theme) || defaultTheme;
+    }
+    return defaultTheme;
+  });
 
   useEffect(() => {
     const root = window.document.documentElement;
+
     root.classList.remove("light", "dark");
 
     if (theme === "system") {
@@ -36,6 +42,7 @@ export function ThemeProvider({
         .matches
         ? "dark"
         : "light";
+
       root.classList.add(systemTheme);
       return;
     }
