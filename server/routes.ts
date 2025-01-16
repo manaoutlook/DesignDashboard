@@ -9,7 +9,19 @@ export function registerRoutes(app: Express): Server {
   app.get("/api/metrics", async (_req, res) => {
     try {
       const metrics = await db.query.dashboardMetrics.findMany();
-      res.json(metrics);
+      // Format values that represent currency
+      const formattedMetrics = metrics.map(metric => ({
+        ...metric,
+        value: metric.title.toLowerCase().includes('revenue') || metric.title.toLowerCase().includes('sales')
+          ? new Intl.NumberFormat('th-TH', {
+              style: 'currency',
+              currency: 'THB',
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            }).format(parseFloat(metric.value.replace(/[^0-9.-]+/g, "")))
+          : metric.value
+      }));
+      res.json(formattedMetrics);
     } catch (error) {
       res.status(500).json({ message: "Error fetching metrics" });
     }

@@ -25,7 +25,11 @@ export function OverviewCard({
         <Icon className="h-4 w-4 text-muted-foreground" />
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold">{value}</div>
+        <div className="text-2xl font-bold">
+          {title.toLowerCase().includes('revenue') || title.toLowerCase().includes('sales')
+            ? value 
+            : value}
+        </div>
         <p className="text-xs text-muted-foreground">{description}</p>
         {trend && trendValue && (
           <div
