@@ -3,16 +3,18 @@ import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
   Settings,
-  Users,
+  MapPin,
+  Car,
+  Wrench,
   BarChart,
-  FileText,
 } from "lucide-react";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
   { name: "Analytics", href: "/analytics", icon: BarChart },
-  { name: "Customers", href: "/customers", icon: Users },
-  { name: "Documents", href: "/documents", icon: FileText },
+  { name: "Locations", href: "/locations", icon: MapPin },
+  { name: "Cars", href: "/cars", icon: Car },
+  { name: "Spare Parts", href: "/spare-parts", icon: Wrench },
   { name: "Settings", href: "/settings", icon: Settings },
 ];
 
