@@ -1,4 +1,5 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
+import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
   Settings,
@@ -16,26 +17,36 @@ const navigation = [
 ];
 
 export function DashboardSidebar() {
+  const [location] = useLocation();
+
   return (
-    <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
+    <div className="hidden border-r bg-sidebar lg:block dark:bg-sidebar">
       <div className="flex h-full flex-col">
         <div className="flex h-14 items-center border-b px-4 lg:h-[60px]">
           <Link href="/" className="flex items-center gap-2 font-semibold">
             <LayoutDashboard className="h-6 w-6" />
-            <span>Dashboard</span>
+            <span className="text-lg">Dashboard</span>
           </Link>
         </div>
         <nav className="flex-1 space-y-1 p-4">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            >
-              <item.icon className="h-5 w-5" />
-              {item.name}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const isActive = location === item.href;
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                  isActive
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                )}
+              >
+                <item.icon className="h-5 w-5" />
+                {item.name}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </div>
