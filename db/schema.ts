@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp, numeric } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, numeric, jsonb } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 
@@ -37,6 +37,68 @@ export const activities = pgTable("activities", {
   time: timestamp("time").defaultNow(),
 });
 
+// Locations table
+export const locations = pgTable("locations", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  locationType: text("location_type").notNull(),
+  address: text("address").notNull(),
+  area: text("area").notNull(),
+  city: text("city").notNull(),
+  region: text("region").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Cars table
+export const cars = pgTable("cars", {
+  id: serial("id").primaryKey(),
+  vinNumber: text("vin_number").unique().notNull(),
+  carPhoto: text("car_photo"),
+  make: text("make").notNull(),
+  model: text("model").notNull(),
+  year: integer("year").notNull(),
+  price: numeric("price").notNull(),
+  quantity: integer("quantity").notNull(),
+  locationId: integer("location_id").references(() => locations.id),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Spare Parts table
+export const spareParts = pgTable("spare_parts", {
+  id: serial("id").primaryKey(),
+  partNumber: text("part_number").unique().notNull(),
+  name: text("name").notNull(),
+  manufacturer: text("manufacturer").notNull(),
+  price: numeric("price").notNull(),
+  quantity: integer("quantity").notNull(),
+  alertThreshold: integer("alert_threshold").notNull(),
+  locationId: integer("location_id").references(() => locations.id),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Relations
+export const locationsRelations = relations(locations, ({ many }) => ({
+  cars: many(cars),
+  spareParts: many(spareParts),
+}));
+
+export const carsRelations = relations(cars, ({ one }) => ({
+  location: one(locations, {
+    fields: [cars.locationId],
+    references: [locations.id],
+  }),
+}));
+
+export const sparePartsRelations = relations(spareParts, ({ one }) => ({
+  location: one(locations, {
+    fields: [spareParts.locationId],
+    references: [locations.id],
+  }),
+}));
+
 // Schema types
 export const insertUserSchema = createInsertSchema(users);
 export const selectUserSchema = createSelectSchema(users);
@@ -46,6 +108,12 @@ export const insertRevenueDataSchema = createInsertSchema(revenueData);
 export const selectRevenueDataSchema = createSelectSchema(revenueData);
 export const insertActivitySchema = createInsertSchema(activities);
 export const selectActivitySchema = createSelectSchema(activities);
+export const insertLocationSchema = createInsertSchema(locations);
+export const selectLocationSchema = createSelectSchema(locations);
+export const insertCarSchema = createInsertSchema(cars);
+export const selectCarSchema = createSelectSchema(cars);
+export const insertSparePartSchema = createInsertSchema(spareParts);
+export const selectSparePartSchema = createSelectSchema(spareParts);
 
 // Types
 export type InsertUser = typeof users.$inferInsert;
@@ -56,3 +124,9 @@ export type InsertRevenueData = typeof revenueData.$inferInsert;
 export type SelectRevenueData = typeof revenueData.$inferSelect;
 export type InsertActivity = typeof activities.$inferInsert;
 export type SelectActivity = typeof activities.$inferSelect;
+export type InsertLocation = typeof locations.$inferInsert;
+export type SelectLocation = typeof locations.$inferSelect;
+export type InsertCar = typeof cars.$inferInsert;
+export type SelectCar = typeof cars.$inferSelect;
+export type InsertSparePart = typeof spareParts.$inferInsert;
+export type SelectSparePart = typeof spareParts.$inferSelect;
