@@ -3,6 +3,7 @@ import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { OverviewCard } from "@/components/dashboard/OverviewCard";
 import { RevenueChart } from "@/components/dashboard/RevenueChart";
 import { ActivityList } from "@/components/dashboard/ActivityList";
+import { DataTable } from "@/components/dashboard/DataTable";
 import { Users, DollarSign, ShoppingCart, ArrowUpRight } from "lucide-react";
 import { useMetrics, type DashboardMetric } from "@/lib/api";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -28,13 +29,15 @@ export default function Dashboard() {
             <div className="h-full px-4 py-6 lg:px-8">
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                 {isLoading ? (
-                  Array(4).fill(0).map((_, i) => (
-                    <div key={i} className="p-4 space-y-4">
-                      <Skeleton className="h-4 w-[150px]" />
-                      <Skeleton className="h-8 w-[100px]" />
-                      <Skeleton className="h-4 w-[200px]" />
-                    </div>
-                  ))
+                  Array(4)
+                    .fill(0)
+                    .map((_, i) => (
+                      <div key={i} className="p-4 space-y-4">
+                        <Skeleton className="h-4 w-[150px]" />
+                        <Skeleton className="h-8 w-[100px]" />
+                        <Skeleton className="h-4 w-[200px]" />
+                      </div>
+                    ))
                 ) : (
                   metrics?.map((metric: DashboardMetric) => (
                     <OverviewCard
@@ -52,6 +55,9 @@ export default function Dashboard() {
               <div className="mt-6 grid gap-4 md:grid-cols-7">
                 <RevenueChart />
                 <ActivityList />
+              </div>
+              <div className="mt-6">
+                <DataTable isLoading={false} />
               </div>
             </div>
           </div>
