@@ -16,6 +16,13 @@ const iconMap: Record<string, LucideIcon> = {
   "arrow-up-right": ArrowUpRight,
 };
 
+const sampleData = [
+  { id: 1, name: 'User 1', email: 'user1@example.com', status: 'Active' },
+  { id: 2, name: 'User 2', email: 'user2@example.com', status: 'Inactive' },
+  { id: 3, name: 'User 3', email: 'user3@example.com', status: 'Active' },
+];
+
+
 export default function Dashboard() {
   const { data: metrics, isLoading } = useMetrics();
 
@@ -57,7 +64,7 @@ export default function Dashboard() {
                 <ActivityList />
               </div>
               <div className="mt-6">
-                <DataTable isLoading={false} />
+                <DataTable data={sampleData} isLoading={false} />
               </div>
             </div>
           </div>

@@ -53,7 +53,7 @@ export function DataTable({ data = sampleData, isLoading }: DataTableProps) {
   if (isLoading) {
     return (
       <Card>
-        <CardHeader>
+        <CardHeader className="bg-[#1a365d] text-white">
           <CardTitle>Users</CardTitle>
         </CardHeader>
         <CardContent>
@@ -76,7 +76,7 @@ export function DataTable({ data = sampleData, isLoading }: DataTableProps) {
 
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="bg-[#1a365d] text-white">
         <CardTitle>Users</CardTitle>
       </CardHeader>
       <CardContent>
