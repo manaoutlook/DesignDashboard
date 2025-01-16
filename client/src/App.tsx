@@ -4,12 +4,12 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Dashboard from "@/pages/dashboard";
+import LocationsPage from "@/pages/locations";
+import CarsPage from "@/pages/cars";
+import SparePartsPage from "@/pages/spare-parts";
 import NotFound from "@/pages/not-found";
 
-// Placeholder components for new modules
-const LocationsPage = () => <div>Locations Management</div>;
-const CarsPage = () => <div>Cars Management</div>;
-const SparePartsPage = () => <div>Spare Parts Management</div>;
+// Placeholder components for non-implemented modules
 const AnalyticsPage = () => <div>Analytics</div>;
 const SettingsPage = () => <div>Settings</div>;
 
