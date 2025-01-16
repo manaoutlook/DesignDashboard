@@ -8,18 +8,20 @@ import {
   Wrench,
   BarChart,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: LayoutDashboard },
-  { name: "Analytics", href: "/analytics", icon: BarChart },
-  { name: "Locations", href: "/locations", icon: MapPin },
-  { name: "Cars", href: "/cars", icon: Car },
-  { name: "Spare Parts", href: "/spare-parts", icon: Wrench },
-  { name: "Settings", href: "/settings", icon: Settings },
+  { name: "common.dashboard", href: "/", icon: LayoutDashboard },
+  { name: "common.overview", href: "/analytics", icon: BarChart },
+  { name: "common.locations", href: "/locations", icon: MapPin },
+  { name: "common.cars", href: "/cars", icon: Car },
+  { name: "common.spareParts", href: "/spare-parts", icon: Wrench },
+  { name: "common.settings", href: "/settings", icon: Settings },
 ];
 
 export function DashboardSidebar() {
   const [location] = useLocation();
+  const { t } = useTranslation();
 
   return (
     <div className="hidden border-r bg-sidebar lg:block dark:bg-sidebar">
@@ -27,7 +29,7 @@ export function DashboardSidebar() {
         <div className="flex h-14 items-center border-b px-4 lg:h-[60px]">
           <Link href="/" className="flex items-center gap-2 font-semibold">
             <LayoutDashboard className="h-6 w-6" />
-            <span className="text-lg">Dashboard</span>
+            <span className="text-lg">{t('common.dashboard')}</span>
           </Link>
         </div>
         <nav className="flex-1 space-y-1 p-4">
@@ -45,7 +47,7 @@ export function DashboardSidebar() {
                 )}
               >
                 <item.icon className="h-5 w-5" />
-                {item.name}
+                {t(item.name)}
               </Link>
             );
           })}
