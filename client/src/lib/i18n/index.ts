@@ -10,16 +10,25 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en: enTranslations,
-      th: thTranslations,
+      en: {
+        translation: enTranslations,
+      },
+      th: {
+        translation: thTranslations,
+      }
     },
     fallbackLng: 'en',
+    defaultNS: 'translation',
     interpolation: {
       escapeValue: false,
     },
     detection: {
       order: ['localStorage', 'navigator'],
+      caches: ['localStorage'],
     },
+    react: {
+      useSuspense: false
+    }
   });
 
 // Validate translations in development
