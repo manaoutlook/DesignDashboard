@@ -17,9 +17,27 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 const sampleData = [
-  { id: 1, name: 'User 1', email: 'user1@example.com', status: 'Active' },
-  { id: 2, name: 'User 2', email: 'user2@example.com', status: 'Inactive' },
-  { id: 3, name: 'User 3', email: 'user3@example.com', status: 'Active' },
+  {
+    id: 1,
+    name: "John Doe",
+    email: "john@example.com",
+    status: "active" as const,
+    lastActive: "2 hours ago"
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    email: "jane@example.com",
+    status: "inactive" as const,
+    lastActive: "1 day ago"
+  },
+  {
+    id: 3,
+    name: "Bob Johnson",
+    email: "bob@example.com",
+    status: "active" as const,
+    lastActive: "3 days ago"
+  },
 ];
 
 

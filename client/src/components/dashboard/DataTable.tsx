@@ -30,21 +30,21 @@ const sampleData = [
     id: 1,
     name: "John Doe",
     email: "john@example.com",
-    status: "active",
+    status: "active" as const,
     lastActive: "2 hours ago",
   },
   {
     id: 2,
     name: "Jane Smith",
     email: "jane@example.com",
-    status: "active",
+    status: "active" as const,
     lastActive: "1 day ago",
   },
   {
     id: 3,
     name: "Bob Johnson",
     email: "bob@example.com",
-    status: "inactive",
+    status: "inactive" as const,
     lastActive: "1 week ago",
   },
 ] as const;
@@ -82,16 +82,19 @@ export function DataTable({ data = sampleData, isLoading }: DataTableProps) {
       <CardContent>
         <Table>
           <TableHeader>
-            <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Email</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Last Active</TableHead>
+            <TableRow className="bg-sky-100">
+              <TableHead className="text-sky-900 font-semibold">Name</TableHead>
+              <TableHead className="text-sky-900 font-semibold">Email</TableHead>
+              <TableHead className="text-sky-900 font-semibold">Status</TableHead>
+              <TableHead className="text-sky-900 font-semibold">Last Active</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {data.map((row) => (
-              <TableRow key={row.id}>
+              <TableRow 
+                key={row.id}
+                className="even:bg-gray-50"
+              >
                 <TableCell className="font-medium">{row.name}</TableCell>
                 <TableCell>{row.email}</TableCell>
                 <TableCell>
