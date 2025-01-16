@@ -1,0 +1,52 @@
+// English translations
+export const enTranslations = {
+  common: {
+    language: 'Language',
+    dashboard: 'Dashboard',
+    locations: 'Locations',
+    cars: 'Cars',
+    spareParts: 'Spare Parts',
+    overview: 'Overview',
+    revenue: 'Revenue',
+    activities: 'Activities',
+    settings: 'Settings',
+  },
+  dashboard: {
+    title: 'Dashboard',
+    welcome: 'Welcome to Enterprise Dashboard',
+    metrics: {
+      totalRevenue: 'Total Revenue',
+      activeUsers: 'Active Users',
+      totalOrders: 'Total Orders',
+    },
+  },
+  locations: {
+    title: 'Locations',
+    addLocation: 'Add Location',
+    locationDetails: 'Location Details',
+    address: 'Address',
+    type: 'Type',
+    capacity: 'Capacity',
+  },
+  cars: {
+    title: 'Cars',
+    addCar: 'Add Car',
+    carDetails: 'Car Details',
+    vinNumber: 'VIN Number',
+    manufacturer: 'Manufacturer',
+    model: 'Model',
+    year: 'Year',
+  },
+  spareParts: {
+    title: 'Spare Parts',
+    addPart: 'Add Part',
+    partDetails: 'Part Details',
+    partNumber: 'Part Number',
+    name: 'Name',
+    manufacturer: 'Manufacturer',
+    price: 'Price',
+    quantity: 'Quantity',
+    alertThreshold: 'Alert Threshold',
+    location: 'Location',
+  },
+};

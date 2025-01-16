@@ -1,0 +1,52 @@
+// Thai translations
+export const thTranslations = {
+  common: {
+    language: 'ภาษา',
+    dashboard: 'แดชบอร์ด',
+    locations: 'สถานที่',
+    cars: 'รถยนต์',
+    spareParts: 'อะไหล่',
+    overview: 'ภาพรวม',
+    revenue: 'รายได้',
+    activities: 'กิจกรรม',
+    settings: 'การตั้งค่า',
+  },
+  dashboard: {
+    title: 'แดชบอร์ด',
+    welcome: 'ยินดีต้อนรับสู่แดชบอร์ดองค์กร',
+    metrics: {
+      totalRevenue: 'รายได้รวม',
+      activeUsers: 'ผู้ใช้ที่ใช้งานอยู่',
+      totalOrders: 'คำสั่งซื้อทั้งหมด',
+    },
+  },
+  locations: {
+    title: 'สถานที่',
+    addLocation: 'เพิ่มสถานที่',
+    locationDetails: 'รายละเอียดสถานที่',
+    address: 'ที่อยู่',
+    type: 'ประเภท',
+    capacity: 'ความจุ',
+  },
+  cars: {
+    title: 'รถยนต์',
+    addCar: 'เพิ่มรถยนต์',
+    carDetails: 'รายละเอียดรถยนต์',
+    vinNumber: 'หมายเลข VIN',
+    manufacturer: 'ผู้ผลิต',
+    model: 'รุ่น',
+    year: 'ปี',
+  },
+  spareParts: {
+    title: 'อะไหล่',
+    addPart: 'เพิ่มอะไหล่',
+    partDetails: 'รายละเอียดอะไหล่',
+    partNumber: 'หมายเลขอะไหล่',
+    name: 'ชื่อ',
+    manufacturer: 'ผู้ผลิต',
+    price: 'ราคา',
+    quantity: 'จำนวน',
+    alertThreshold: 'เกณฑ์การแจ้งเตือน',
+    location: 'สถานที่',
+  },
+};
