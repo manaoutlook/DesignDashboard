@@ -16,8 +16,11 @@ export const thTranslations = {
     welcome: 'ยินดีต้อนรับสู่แดชบอร์ดองค์กร',
     metrics: {
       totalRevenue: 'รายได้รวม',
+      monthlyRevenue: 'รายได้ประจำเดือน',
       activeUsers: 'ผู้ใช้ที่ใช้งานอยู่',
-      totalOrders: 'คำสั่งซื้อทั้งหมด',
+      totalSales: 'ยอดขายรวม',
+      activeNow: 'ผู้ใช้งานขณะนี้',
+      realtimeUsers: 'ผู้ใช้งานแบบเรียลไทม์',
     },
   },
   locations: {
@@ -40,13 +43,14 @@ export const thTranslations = {
   spareParts: {
     title: 'อะไหล่',
     addPart: 'เพิ่มอะไหล่',
-    partDetails: 'รายละเอียดอะไหล่',
+    description: 'จัดการสินค้าคงคลังอะไหล่ทั้งหมดของคุณ',
+    listDescription: 'รายการอะไหล่ทั้งหมดในคลังสินค้าของคุณ',
     partNumber: 'หมายเลขอะไหล่',
     name: 'ชื่อ',
     manufacturer: 'ผู้ผลิต',
     price: 'ราคา',
     quantity: 'จำนวน',
     alertThreshold: 'เกณฑ์การแจ้งเตือน',
-    location: 'สถานที่',
+    location: 'ตำแหน่ง',
   },
 };

@@ -6,9 +6,12 @@ import { thTranslations } from './translations/th';
 
 // Initialize i18next
 void i18n
-  .use(LanguageDetector)
   .use(initReactI18next)
+  .use(LanguageDetector)
   .init({
+    debug: process.env.NODE_ENV === 'development',
+    fallbackLng: 'en',
+    defaultNS: 'translation',
     resources: {
       en: {
         translation: enTranslations,
@@ -17,18 +20,25 @@ void i18n
         translation: thTranslations,
       }
     },
-    fallbackLng: 'en',
-    defaultNS: 'translation',
     interpolation: {
       escapeValue: false,
     },
     detection: {
       order: ['localStorage', 'navigator'],
+      lookupLocalStorage: 'i18nextLng',
       caches: ['localStorage'],
     },
     react: {
       useSuspense: false,
     }
   });
+
+// Log the current language in development
+if (process.env.NODE_ENV === 'development') {
+  i18n.on('languageChanged', (lng) => {
+    console.log('Language changed to:', lng);
+    console.log('Available translations:', Object.keys(i18n.store.data));
+  });
+}
 
 export default i18n;
