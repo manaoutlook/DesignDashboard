@@ -31,7 +31,6 @@ export function registerRoutes(app: Express): Server {
   app.get("/api/locations", async (_req, res) => {
     try {
       const locationsList = await db.query.locations.findMany({
-        orderBy: [desc(locations.updatedAt)],
         with: {
           cars: true,
           spareParts: true
@@ -80,7 +79,6 @@ export function registerRoutes(app: Express): Server {
         with: {
           location: true,
         },
-        orderBy: [desc(cars.updatedAt)],
       });
 
       const formattedCars = carsList.map(car => ({
@@ -146,7 +144,6 @@ export function registerRoutes(app: Express): Server {
         with: {
           location: true,
         },
-        orderBy: [desc(spareParts.updatedAt)],
       });
 
       const formattedSpareParts = sparePartsList.map(part => ({

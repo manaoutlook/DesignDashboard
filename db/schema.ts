@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp, numeric, jsonb } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, numeric } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 
@@ -18,7 +18,7 @@ export const dashboardMetrics = pgTable("dashboard_metrics", {
   icon: text("icon").notNull(),
   trend: text("trend"),
   trendValue: text("trend_value"),
-  updatedAt: timestamp("updated_at").defaultNow(),
+  updatedAt: timestamp("updated_at"),
 });
 
 // Revenue data table
@@ -26,7 +26,6 @@ export const revenueData = pgTable("revenue_data", {
   id: serial("id").primaryKey(),
   month: text("month").notNull(),
   value: numeric("value").notNull(),
-  createdAt: timestamp("created_at").defaultNow(),
 });
 
 // Activities table
@@ -34,7 +33,7 @@ export const activities = pgTable("activities", {
   id: serial("id").primaryKey(),
   userName: text("user_name").notNull(),
   action: text("action").notNull(),
-  time: timestamp("time").defaultNow(),
+  time: timestamp("time"),
 });
 
 // Locations table
@@ -46,8 +45,6 @@ export const locations = pgTable("locations", {
   area: text("area").notNull(),
   city: text("city").notNull(),
   region: text("region").notNull(),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 // Cars table
@@ -61,8 +58,6 @@ export const cars = pgTable("cars", {
   price: numeric("price").notNull(),
   quantity: integer("quantity").notNull(),
   locationId: integer("location_id").references(() => locations.id),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 // Spare Parts table
@@ -75,8 +70,6 @@ export const spareParts = pgTable("spare_parts", {
   quantity: integer("quantity").notNull(),
   alertThreshold: integer("alert_threshold").notNull(),
   locationId: integer("location_id").references(() => locations.id),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 // Relations
