@@ -108,10 +108,10 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  app.get("/api/cars/:id", async (req, res) => {
+  app.get("/api/cars/:vin", async (req, res) => {
     try {
       const car = await db.query.cars.findFirst({
-        where: eq(cars.id, parseInt(req.params.id)),
+        where: eq(cars.vinNumber, req.params.vin),
         with: {
           location: true,
         },
@@ -173,10 +173,10 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  app.get("/api/spare-parts/:id", async (req, res) => {
+  app.get("/api/spare-parts/:partNumber", async (req, res) => {
     try {
       const sparePart = await db.query.spareParts.findFirst({
-        where: eq(spareParts.id, parseInt(req.params.id)),
+        where: eq(spareParts.partNumber, req.params.partNumber),
         with: {
           location: true,
         },

@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp, numeric } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, timestamp, numeric } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 
@@ -49,9 +49,7 @@ export const locations = pgTable("locations", {
 
 // Cars table
 export const cars = pgTable("cars", {
-  id: serial("id").primaryKey(),
-  vinNumber: text("vin_number").unique().notNull(),
-  carPhoto: text("car_photo"),
+  vinNumber: text("vin_number").primaryKey(),
   make: text("make").notNull(),
   model: text("model").notNull(),
   year: integer("year").notNull(),
@@ -62,8 +60,7 @@ export const cars = pgTable("cars", {
 
 // Spare Parts table
 export const spareParts = pgTable("spare_parts", {
-  id: serial("id").primaryKey(),
-  partNumber: text("part_number").unique().notNull(),
+  partNumber: text("part_number").primaryKey(),
   name: text("name").notNull(),
   manufacturer: text("manufacturer").notNull(),
   price: numeric("price").notNull(),
