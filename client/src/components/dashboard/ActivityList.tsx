@@ -47,7 +47,7 @@ export function ActivityList() {
               <div className="flex-1 space-y-1">
                 <p className="text-sm font-medium">{activity.userName}</p>
                 <p className="text-sm text-muted-foreground">
-                  {t(`dashboard.activity.userActions.${activity.action}`)}
+                  {t(`dashboard.activity.userActions.${activity.action.split('.').pop()}`)}
                 </p>
               </div>
               <div className="text-sm text-muted-foreground">
