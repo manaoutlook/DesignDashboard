@@ -1,0 +1,46 @@
+id,username,password
+id,user_name,action,time
+1,John Smith,created a new project,2025-01-16 16:20:06.672182
+2,Sarah Johnson,uploaded new files,2025-01-16 14:20:06.672182
+3,Mike Wilson,completed task,2025-01-16 13:20:06.672182
+id,title,value,description,icon,trend,trend_value,updated_at
+1,Total Revenue,"$45,231",Monthly revenue,dollar-sign,up,12% from last month,2025-01-16 18:20:06.672182
+2,Customers,"2,350",Active users,users,up,8% from last month,2025-01-16 18:20:06.672182
+3,Sales,"12,234",Total sales,shopping-cart,,,2025-01-16 18:20:06.672182
+4,Active Now,573,Real-time users,arrow-up-right,,,2025-01-16 18:20:06.672182
+id,month,value,created_at
+1,Jan,4000,2025-01-16 18:20:06.672182
+2,Feb,3000,2025-01-16 18:20:06.672182
+3,Mar,2000,2025-01-16 18:20:06.672182
+4,Apr,2780,2025-01-16 18:20:06.672182
+5,May,1890,2025-01-16 18:20:06.672182
+6,Jun,2390,2025-01-16 18:20:06.672182
+7,Jul,3490,2025-01-16 18:20:06.672182
+id,name,location_type,address,area,city,region,created_at,updated_at
+1,Bangkok Central,Showroom,123 Sukhumvit Road,Sukhumvit,Bangkok,Central,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+2,Chiang Mai Hub,Warehouse,456 Nimman Road,Nimman,Chiang Mai,North,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+3,Phuket Branch,Service Center,789 Beach Road,Patong,Phuket,South,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+4,Pattaya Center,Showroom,321 Beach Road,Central Pattaya,Pattaya,East,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+5,Khon Kaen Depot,Warehouse,654 Main Street,Mueang,Khon Kaen,Northeast,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+id,vin_number,car_photo,make,model,year,price,quantity,location_id,created_at,updated_at
+1,JH4DA9350MS016523,toyota_camry.jpg,Toyota,Camry,2023,1299000,3,1,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+2,1HGCM82633A123456,honda_civic.jpg,Honda,Civic,2023,989000,2,1,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+3,5XYZT3LB0DG123457,mg_zs.jpg,MG,ZS,2023,779000,4,2,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+4,WBAJB0C51BC168901,bmw_3.jpg,BMW,3 Series,2023,2499000,1,1,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+5,WAUUL78E45A123458,audi_a4.jpg,Audi,A4,2023,2799000,2,4,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+6,1G1BE5SM0G7123459,nissan_leaf.jpg,Nissan,Leaf,2023,1499000,3,3,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+7,2T2BK1BA0BC123460,lexus_nx.jpg,Lexus,NX,2023,3299000,1,4,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+8,JM1GL1UM1J1123461,mazda_3.jpg,Mazda,3,2023,989000,2,2,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+9,KM8R3DHE6NU123462,hyundai_tucson.jpg,Hyundai,Tucson,2023,1299000,3,5,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+10,SADCA2BV4JA123463,mercedes_c.jpg,Mercedes-Benz,C-Class,2023,2899000,1,1,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+id,part_number,name,manufacturer,price,quantity,alert_threshold,location_id,created_at,updated_at
+1,TY-OIL-001,Engine Oil Filter,Toyota,450,100,20,1,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+2,HN-BRK-002,Brake Pads,Honda,1200,50,10,1,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+3,NS-BAT-003,Car Battery,Panasonic,3500,30,5,2,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+4,BM-AIR-004,Air Filter,BMW,890,75,15,3,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+5,MZ-CLT-005,Clutch Kit,Mazda,15000,20,4,4,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+6,AD-RAD-006,Radiator,Denso,12000,25,5,5,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+7,MB-BLT-007,Timing Belt,Continental,2500,40,8,1,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+8,HY-SPK-008,Spark Plugs Set,NGK,800,150,30,2,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+9,LX-WPR-009,Wiper Blades,Bosch,650,100,20,3,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904
+10,TY-TIR-010,Tire 215/55R17,Michelin,4500,60,12,4,2025-01-16 19:11:09.343904,2025-01-16 19:11:09.343904

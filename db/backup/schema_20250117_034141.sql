@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS activities (id integer NOT NULL, user_name text NOT NULL, action text NOT NULL, time timestamp without time zone);
+CREATE TABLE IF NOT EXISTS locations (id integer NOT NULL, name text NOT NULL, location_type text NOT NULL, address text NOT NULL, area text NOT NULL, city text NOT NULL, region text NOT NULL, created_at timestamp without time zone, updated_at timestamp without time zone);
+CREATE TABLE IF NOT EXISTS cars (id integer NOT NULL, vin_number text NOT NULL, car_photo text, make text NOT NULL, model text NOT NULL, year integer NOT NULL, price numeric NOT NULL, quantity integer NOT NULL, location_id integer, created_at timestamp without time zone, updated_at timestamp without time zone);
+CREATE TABLE IF NOT EXISTS dashboard_metrics (id integer NOT NULL, title text NOT NULL, value text NOT NULL, description text NOT NULL, icon text NOT NULL, trend text, trend_value text, updated_at timestamp without time zone);
+CREATE TABLE IF NOT EXISTS users (id integer NOT NULL, username text NOT NULL, password text NOT NULL);
+CREATE TABLE IF NOT EXISTS revenue_data (id integer NOT NULL, month text NOT NULL, value numeric NOT NULL, created_at timestamp without time zone);
+CREATE TABLE IF NOT EXISTS spare_parts (id integer NOT NULL, part_number text NOT NULL, name text NOT NULL, manufacturer text NOT NULL, price numeric NOT NULL, quantity integer NOT NULL, alert_threshold integer NOT NULL, location_id integer, created_at timestamp without time zone, updated_at timestamp without time zone);
