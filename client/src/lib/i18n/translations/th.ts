@@ -44,10 +44,9 @@ export const thTranslations = {
     activity: {
       recentActivity: 'กิจกรรมล่าสุด',
       userActions: {
-        created: 'สร้างโปรเจกต์ใหม่',
-        uploaded: 'อัปโหลดไฟล์ใหม่',
-        completed: 'ทำงานเสร็จสิ้น',
-        modified: 'แก้ไข',
+        'created a new project': 'สร้างโปรเจกต์ใหม่',
+        'uploaded new files': 'อัปโหลดไฟล์ใหม่',
+        'completed task': 'ทำงานเสร็จสิ้น',
       },
       timeLabels: {
         now: 'เมื่อสักครู่',

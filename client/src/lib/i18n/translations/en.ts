@@ -35,7 +35,6 @@ export const enTranslations = {
       fromLastMonth: 'from last month',
       percentageIncrease: '{{value}}% increase',
       percentageDecrease: '{{value}}% decrease',
-      undefined: '', // Added missing key
     },
     charts: {
       revenueOverTime: 'Revenue Over Time',
@@ -45,9 +44,9 @@ export const enTranslations = {
     activity: {
       recentActivity: 'Recent Activity',
       userActions: {
-        created: 'created a new project',
-        uploaded: 'uploaded new files',
-        completed: 'completed task',
+        'created a new project': 'Created a new project',
+        'uploaded new files': 'Uploaded new files',
+        'completed task': 'Completed task',
         modified: 'modified',
       },
       timeLabels: {
