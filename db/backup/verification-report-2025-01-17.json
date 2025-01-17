@@ -1,0 +1,92 @@
+{
+  "verification_timestamp": "2025-01-17T03:10:00Z",
+  "environment": "development",
+  "database_status": {
+    "tables_verified": [
+      {
+        "name": "users",
+        "schema": {
+          "columns": ["id (serial)", "username (text)", "password (text)"],
+          "constraints": ["PRIMARY KEY (id)", "UNIQUE (username)"]
+        },
+        "row_count": 0,
+        "size": "24 kB",
+        "status": "verified",
+        "schema_version": "current",
+        "data_integrity": "complete"
+      },
+      {
+        "name": "locations",
+        "schema": {
+          "columns": [
+            "id (serial)",
+            "name (text)",
+            "location_type (text)",
+            "address (text)",
+            "area (text)",
+            "city (text)",
+            "region (text)"
+          ],
+          "constraints": ["PRIMARY KEY (id)"]
+        },
+        "row_count": 5,
+        "size": "32 kB",
+        "status": "verified",
+        "schema_version": "current",
+        "data_integrity": "complete"
+      },
+      {
+        "name": "cars",
+        "schema": {
+          "columns": [
+            "id (serial)",
+            "vin_number (text)",
+            "make (text)",
+            "model (text)",
+            "year (integer)",
+            "price (numeric)",
+            "quantity (integer)",
+            "location_id (integer)"
+          ],
+          "constraints": [
+            "PRIMARY KEY (id)",
+            "FOREIGN KEY (location_id) REFERENCES locations(id)"
+          ]
+        },
+        "row_count": 10,
+        "size": "48 kB",
+        "status": "verified",
+        "schema_version": "current",
+        "data_integrity": "complete"
+      },
+      {
+        "name": "spare_parts",
+        "schema": {
+          "columns": [
+            "id (serial)",
+            "part_number (text)",
+            "name (text)",
+            "manufacturer (text)",
+            "price (numeric)",
+            "quantity (integer)",
+            "alert_threshold (integer)",
+            "location_id (integer)"
+          ],
+          "constraints": [
+            "PRIMARY KEY (id)",
+            "FOREIGN KEY (location_id) REFERENCES locations(id)"
+          ]
+        },
+        "row_count": 10,
+        "size": "48 kB",
+        "status": "verified",
+        "schema_version": "current",
+        "data_integrity": "complete"
+      }
+    ],
+    "schema_changes": [],
+    "data_changes": []
+  },
+  "verification_result": "success",
+  "notes": "Initial verification report for the current database state. No schema changes detected."
+}

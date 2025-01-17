@@ -37,7 +37,7 @@ export default function LocationsPage() {
                 <div>
                   <h2 className="text-2xl font-bold tracking-tight">{t('locations.title')}</h2>
                   <p className="text-muted-foreground">
-                    {t('locations.description')}
+                    {t('locations.description', 'Manage your business locations and facilities')}
                   </p>
                 </div>
                 <Button className="flex items-center gap-2">
@@ -50,7 +50,7 @@ export default function LocationsPage() {
                 <CardHeader>
                   <CardTitle>{t('locations.title')}</CardTitle>
                   <CardDescription>
-                    {t('locations.listDescription')}
+                    {t('locations.listDescription', 'A list of all locations in your organization')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
