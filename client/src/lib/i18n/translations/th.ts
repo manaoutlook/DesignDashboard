@@ -99,6 +99,8 @@ export const thTranslations = {
     addCar: 'เพิ่มรถยนต์',
     editCar: 'แก้ไขรถยนต์',
     carDetails: 'รายละเอียดรถยนต์',
+    description: 'จัดการกองยานพาหนะทั้งหมดของคุณ',
+    listDescription: 'รายการรถยนต์ทั้งหมดในกองยานพาหนะ',
     vinNumber: 'หมายเลข VIN',
     manufacturer: 'ผู้ผลิต',
     model: 'รุ่น',
@@ -115,23 +117,43 @@ export const thTranslations = {
     maintenanceHistory: 'ประวัติการซ่อมบำรุง',
     documents: 'เอกสาร',
     insurance: 'รายละเอียดประกันภัย',
+    plateNumber: 'ทะเบียนรถ',
+    registrationDate: 'วันที่จดทะเบียน',
+    lastInspection: 'ตรวจสภาพครั้งล่าสุด',
+    nextInspection: 'กำหนดตรวจสภาพครั้งถัดไป',
     actions: {
       view: 'ดูรายละเอียด',
       edit: 'แก้ไขรถยนต์',
       delete: 'ลบรถยนต์',
       schedule: 'นัดหมายเข้ารับบริการ',
+      addNew: 'เพิ่มรถยนต์ใหม่',
+      export: 'ส่งออกข้อมูล',
+      import: 'นำเข้าข้อมูล'
     },
     status: {
       available: 'พร้อมใช้งาน',
       inUse: 'กำลังใช้งาน',
       underMaintenance: 'อยู่ระหว่างการซ่อมบำรุง',
       reserved: 'จองแล้ว',
+      outOfService: 'งดให้บริการ'
     },
     filters: {
       all: 'รถยนต์ทั้งหมด',
       available: 'รถยนต์ที่พร้อมใช้งาน',
       maintenance: 'รถยนต์ที่อยู่ระหว่างซ่อมบำรุง',
       reserved: 'รถยนต์ที่จองแล้ว',
+      search: 'ค้นหารถยนต์...',
+      filterBy: 'กรองตาม',
+      sortBy: 'เรียงตาม'
+    },
+    form: {
+      basicInfo: 'ข้อมูลพื้นฐาน',
+      specifications: 'ข้อมูลจำเพาะ',
+      maintenance: 'ข้อมูลการซ่อมบำรุง',
+      documents: 'เอกสารและประกันภัย',
+      save: 'บันทึกการเปลี่ยนแปลง',
+      cancel: 'ยกเลิก',
+      confirmDelete: 'คุณแน่ใจหรือไม่ที่จะลบรถยนต์คันนี้?'
     }
   },
   spareParts: {

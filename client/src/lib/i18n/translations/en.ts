@@ -99,6 +99,8 @@ export const enTranslations = {
     addCar: 'Add Car',
     editCar: 'Edit Car',
     carDetails: 'Car Details',
+    description: 'Manage your vehicle fleet across all locations',
+    listDescription: 'A list of all vehicles in your fleet',
     vinNumber: 'VIN Number',
     manufacturer: 'Manufacturer',
     model: 'Model',
@@ -115,23 +117,43 @@ export const enTranslations = {
     maintenanceHistory: 'Maintenance History',
     documents: 'Documents',
     insurance: 'Insurance Details',
+    plateNumber: 'License Plate',
+    registrationDate: 'Registration Date',
+    lastInspection: 'Last Inspection',
+    nextInspection: 'Next Inspection Due',
     actions: {
       view: 'View Details',
       edit: 'Edit Car',
       delete: 'Delete Car',
       schedule: 'Schedule Service',
+      addNew: 'Add New Car',
+      export: 'Export Data',
+      import: 'Import Data'
     },
     status: {
       available: 'Available',
       inUse: 'In Use',
       underMaintenance: 'Under Maintenance',
       reserved: 'Reserved',
+      outOfService: 'Out of Service'
     },
     filters: {
       all: 'All Cars',
       available: 'Available Cars',
       maintenance: 'In Maintenance',
       reserved: 'Reserved Cars',
+      search: 'Search cars...',
+      filterBy: 'Filter by',
+      sortBy: 'Sort by'
+    },
+    form: {
+      basicInfo: 'Basic Information',
+      specifications: 'Specifications',
+      maintenance: 'Maintenance Information',
+      documents: 'Documents & Insurance',
+      save: 'Save Changes',
+      cancel: 'Cancel',
+      confirmDelete: 'Are you sure you want to delete this car?'
     }
   },
   spareParts: {
