@@ -33,6 +33,10 @@ export const enTranslations = {
       fromLastMonth: 'from last month',
       percentageIncrease: '{{value}}% increase',
       percentageDecrease: '{{value}}% decrease',
+      daily: 'Daily',
+      weekly: 'Weekly',
+      monthly: 'Monthly',
+      yearly: 'Yearly'
     },
     charts: {
       revenueOverTime: 'Revenue Over Time',

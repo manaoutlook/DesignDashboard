@@ -33,6 +33,10 @@ export const thTranslations = {
       fromLastMonth: 'จากเดือนที่แล้ว',
       percentageIncrease: 'เพิ่มขึ้น {{value}}%',
       percentageDecrease: 'ลดลง {{value}}%',
+      daily: 'รายวัน',
+      weekly: 'รายสัปดาห์',
+      monthly: 'รายเดือน',
+      yearly: 'รายปี'
     },
     charts: {
       revenueOverTime: 'รายได้ตามช่วงเวลา',
