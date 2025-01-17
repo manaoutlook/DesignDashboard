@@ -13,6 +13,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useTranslation } from "react-i18next";
 
 interface DataTableProps {
   data: Array<{
@@ -25,36 +26,14 @@ interface DataTableProps {
   isLoading?: boolean;
 }
 
-const sampleData = [
-  {
-    id: 1,
-    name: "John Doe",
-    email: "john@example.com",
-    status: "active" as const,
-    lastActive: "2 hours ago",
-  },
-  {
-    id: 2,
-    name: "Jane Smith",
-    email: "jane@example.com",
-    status: "active" as const,
-    lastActive: "1 day ago",
-  },
-  {
-    id: 3,
-    name: "Bob Johnson",
-    email: "bob@example.com",
-    status: "inactive" as const,
-    lastActive: "1 week ago",
-  },
-] as const;
+export function DataTable({ data, isLoading }: DataTableProps) {
+  const { t } = useTranslation();
 
-export function DataTable({ data = sampleData, isLoading }: DataTableProps) {
   if (isLoading) {
     return (
       <Card>
         <CardHeader className="bg-[#1a365d] text-white">
-          <CardTitle>Users</CardTitle>
+          <CardTitle>{t('common.users')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -77,16 +56,16 @@ export function DataTable({ data = sampleData, isLoading }: DataTableProps) {
   return (
     <Card>
       <CardHeader className="bg-[#1a365d] text-white">
-        <CardTitle>Users</CardTitle>
+        <CardTitle>{t('common.users')}</CardTitle>
       </CardHeader>
       <CardContent>
         <Table>
           <TableHeader>
             <TableRow className="bg-sky-100">
-              <TableHead className="text-sky-900 font-semibold">Name</TableHead>
-              <TableHead className="text-sky-900 font-semibold">Email</TableHead>
-              <TableHead className="text-sky-900 font-semibold">Status</TableHead>
-              <TableHead className="text-sky-900 font-semibold">Last Active</TableHead>
+              <TableHead className="text-sky-900 font-semibold">{t('common.name')}</TableHead>
+              <TableHead className="text-sky-900 font-semibold">{t('common.email')}</TableHead>
+              <TableHead className="text-sky-900 font-semibold">{t('common.status')}</TableHead>
+              <TableHead className="text-sky-900 font-semibold">{t('common.lastActive')}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -105,7 +84,7 @@ export function DataTable({ data = sampleData, isLoading }: DataTableProps) {
                         : "bg-gray-50 text-gray-600"
                     }`}
                   >
-                    {row.status}
+                    {t(`common.status_${row.status}`)}
                   </span>
                 </TableCell>
                 <TableCell className="text-muted-foreground">
