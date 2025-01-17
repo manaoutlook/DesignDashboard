@@ -30,13 +30,15 @@ export const enTranslations = {
       activeUsers: 'Active Users',
       totalSales: 'Total Sales',
       realtimeUsers: 'Real-time Users',
+      monthlyRevenue: 'Monthly Revenue',
       fromLastMonth: 'from last month',
       percentageIncrease: '{{value}}% increase',
       percentageDecrease: '{{value}}% decrease',
       daily: 'Daily',
       weekly: 'Weekly',
       monthly: 'Monthly',
-      yearly: 'Yearly'
+      yearly: 'Yearly',
+      undefined: 'Loading...' // Fallback for undefined metrics
     },
     charts: {
       revenueOverTime: 'Revenue Over Time',
