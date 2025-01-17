@@ -3,10 +3,10 @@
 
 -- Dashboard Metrics Data
 INSERT INTO dashboard_metrics (title, value, description, icon, trend, trend_value) VALUES
-('Total Revenue', '450000', 'Total revenue this month', 'dollar-sign', 'up', '+12.3%'),
-('Active Users', '1205', 'Active users this month', 'users', 'up', '+5.2%'),
-('Sales', '89', 'Total sales this month', 'shopping-cart', 'down', '-2.1%'),
-('Growth', '23.5%', 'Month over month growth', 'arrow-up-right', 'up', '+4.3%');
+(1,'Total Revenue', '450000', 'Total revenue this month', 'dollar-sign', 'up', '+12.3%'),
+(2,'Active Users', '1205', 'Active users this month', 'users', 'up', '+5.2%'),
+(3,'Sales', '89', 'Total sales this month', 'shopping-cart', 'down', '-2.1%'),
+(4,'Growth', '23.5%', 'Month over month growth', 'arrow-up-right', 'up', '+4.3%');
 
 -- Revenue Data
 INSERT INTO revenue_data (month, value) VALUES
