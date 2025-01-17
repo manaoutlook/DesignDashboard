@@ -11,10 +11,10 @@ import { LucideIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const iconMap: Record<string, LucideIcon> = {
-  "dollar-sign": DollarSign,
-  "users": Users,
-  "shopping-cart": ShoppingCart,
-  "arrow-up-right": ArrowUpRight,
+  "totalRevenue": DollarSign,
+  "activeUsers": Users,
+  "totalSales": ShoppingCart,
+  "realtimeUsers": ArrowUpRight,
 };
 
 export default function Dashboard() {
@@ -71,7 +71,7 @@ export default function Dashboard() {
                       title={t(`dashboard.metrics.${metric.type}`)}
                       value={metric.value}
                       description={t('dashboard.metrics.fromLastMonth')}
-                      icon={iconMap[metric.icon] || DollarSign}
+                      icon={iconMap[metric.type] || DollarSign}
                       trend={metric.trend}
                       trendValue={t(`dashboard.metrics.percentage${metric.trend === 'up' ? 'Increase' : 'Decrease'}`, {
                         value: metric.trendPercent
@@ -82,11 +82,15 @@ export default function Dashboard() {
               </div>
               <div className="mt-6 grid gap-4 md:grid-cols-7">
                 <div className="col-span-4">
-                  <h3 className="text-lg font-semibold mb-4">{t('dashboard.charts.revenueOverTime')}</h3>
+                  <h3 className="text-lg font-semibold mb-4">
+                    {t('dashboard.charts.revenueOverTime')}
+                  </h3>
                   <RevenueChart />
                 </div>
                 <div className="col-span-3">
-                  <h3 className="text-lg font-semibold mb-4">{t('dashboard.activity.recentActivity')}</h3>
+                  <h3 className="text-lg font-semibold mb-4">
+                    {t('dashboard.activity.recentActivity')}
+                  </h3>
                   <ActivityList />
                 </div>
               </div>

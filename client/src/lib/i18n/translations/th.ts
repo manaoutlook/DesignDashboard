@@ -27,10 +27,8 @@ export const thTranslations = {
     welcome: 'ยินดีต้อนรับสู่แดชบอร์ดองค์กร',
     metrics: {
       totalRevenue: 'รายได้รวม',
-      monthlyRevenue: 'รายได้ต่อเดือน',
       activeUsers: 'ผู้ใช้งานปัจจุบัน',
       totalSales: 'ยอดขายรวม',
-      activeNow: 'ผู้ใช้งานขณะนี้',
       realtimeUsers: 'ผู้ใช้งานเรียลไทม์',
       fromLastMonth: 'จากเดือนที่แล้ว',
       percentageIncrease: 'เพิ่มขึ้น {{value}}%',
