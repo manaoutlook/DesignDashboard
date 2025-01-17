@@ -10,6 +10,9 @@ export const thTranslations = {
     revenue: 'รายได้',
     activities: 'กิจกรรม',
     settings: 'การตั้งค่า',
+    loading: 'กำลังโหลด...',
+    error: 'ข้อผิดพลาด',
+    success: 'สำเร็จ',
   },
   dashboard: {
     title: 'แดชบอร์ด',
@@ -21,6 +24,29 @@ export const thTranslations = {
       totalSales: 'ยอดขายรวม',
       activeNow: 'ผู้ใช้งานขณะนี้',
       realtimeUsers: 'ผู้ใช้งานแบบเรียลไทม์',
+      fromLastMonth: 'จากเดือนที่แล้ว',
+      percentageIncrease: 'เพิ่มขึ้น {{value}}%',
+      percentageDecrease: 'ลดลง {{value}}%',
+    },
+    charts: {
+      revenueOverTime: 'รายได้ตามเวลา',
+      monthlySales: 'ยอดขายรายเดือน',
+      dailyActive: 'ผู้ใช้งานรายวัน',
+    },
+    activity: {
+      recentActivity: 'กิจกรรมล่าสุด',
+      userActions: {
+        created: 'สร้างโปรเจกต์ใหม่',
+        uploaded: 'อัปโหลดไฟล์ใหม่',
+        completed: 'ทำงานเสร็จสิ้น',
+        modified: 'แก้ไข',
+      },
+      timeLabels: {
+        now: 'เมื่อสักครู่',
+        minutesAgo: '{{count}} นาทีที่แล้ว',
+        hoursAgo: '{{count}} ชั่วโมงที่แล้ว',
+        daysAgo: '{{count}} วันที่แล้ว',
+      },
     },
   },
   locations: {
@@ -30,6 +56,9 @@ export const thTranslations = {
     address: 'ที่อยู่',
     type: 'ประเภท',
     capacity: 'ความจุ',
+    status: 'สถานะ',
+    manager: 'ผู้จัดการ',
+    contact: 'ติดต่อ',
   },
   cars: {
     title: 'รถยนต์',
@@ -39,6 +68,10 @@ export const thTranslations = {
     manufacturer: 'ผู้ผลิต',
     model: 'รุ่น',
     year: 'ปี',
+    status: 'สถานะ',
+    lastService: 'การซ่อมบำรุงครั้งล่าสุด',
+    nextService: 'การซ่อมบำรุงครั้งถัดไป',
+    mileage: 'ระยะทาง',
   },
   spareParts: {
     title: 'อะไหล่',
@@ -52,5 +85,27 @@ export const thTranslations = {
     quantity: 'จำนวน',
     alertThreshold: 'เกณฑ์การแจ้งเตือน',
     location: 'ตำแหน่ง',
+    status: {
+      inStock: 'มีสินค้า',
+      lowStock: 'สินค้าใกล้หมด',
+      outOfStock: 'สินค้าหมด',
+    },
+    alerts: {
+      lowStockWarning: 'เตือนสินค้าใกล้หมด',
+      reorderPoint: 'ถึงจุดสั่งซื้อใหม่',
+    },
+  },
+  actions: {
+    add: 'เพิ่ม',
+    edit: 'แก้ไข',
+    delete: 'ลบ',
+    save: 'บันทึก',
+    cancel: 'ยกเลิก',
+    confirm: 'ยืนยัน',
+    search: 'ค้นหา',
+    filter: 'กรอง',
+    sort: 'เรียงลำดับ',
+    export: 'ส่งออก',
+    import: 'นำเข้า',
   },
 };
