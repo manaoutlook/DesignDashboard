@@ -133,5 +133,34 @@ export const enTranslations = {
       maintenance: 'In Maintenance',
       reserved: 'Reserved Cars',
     }
+  },
+  spareParts: {
+    title: 'Spare Parts',
+    addPart: 'Add Part',
+    description: 'Manage your spare parts inventory across all locations',
+    listDescription: 'A list of all spare parts in your inventory',
+    partNumber: 'Part Number',
+    name: 'Name',
+    manufacturer: 'Manufacturer',
+    price: 'Price',
+    quantity: 'Quantity',
+    alertThreshold: 'Alert Threshold',
+    location: 'Location',
+    actions: {
+      add: 'Add Part',
+      edit: 'Edit Part',
+      delete: 'Delete Part',
+      save: 'Save Changes',
+      cancel: 'Cancel'
+    },
+    status: {
+      inStock: 'In Stock',
+      lowStock: 'Low Stock',
+      outOfStock: 'Out of Stock',
+    },
+    alerts: {
+      lowStockWarning: 'Low stock warning',
+      reorderPoint: 'Reorder point reached',
+    },
   }
 };

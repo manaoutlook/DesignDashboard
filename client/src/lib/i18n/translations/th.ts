@@ -133,5 +133,34 @@ export const thTranslations = {
       maintenance: 'รถยนต์ที่อยู่ระหว่างซ่อมบำรุง',
       reserved: 'รถยนต์ที่จองแล้ว',
     }
+  },
+  spareParts: {
+    title: 'อะไหล่',
+    addPart: 'เพิ่มอะไหล่',
+    description: 'จัดการสินค้าคงคลังอะไหล่ทั้งหมดของคุณ',
+    listDescription: 'รายการอะไหล่ทั้งหมดในคลังสินค้าของคุณ',
+    partNumber: 'หมายเลขอะไหล่',
+    name: 'ชื่อ',
+    manufacturer: 'ผู้ผลิต',
+    price: 'ราคา',
+    quantity: 'จำนวน',
+    alertThreshold: 'เกณฑ์การแจ้งเตือน',
+    location: 'ตำแหน่ง',
+    actions: {
+      add: 'เพิ่มอะไหล่',
+      edit: 'แก้ไขอะไหล่',
+      delete: 'ลบอะไหล่',
+      save: 'บันทึกการเปลี่ยนแปลง',
+      cancel: 'ยกเลิก'
+    },
+    status: {
+      inStock: 'มีสินค้า',
+      lowStock: 'สินค้าใกล้หมด',
+      outOfStock: 'สินค้าหมด',
+    },
+    alerts: {
+      lowStockWarning: 'เตือนสินค้าใกล้หมด',
+      reorderPoint: 'ถึงจุดสั่งซื้อใหม่',
+    },
   }
 };
