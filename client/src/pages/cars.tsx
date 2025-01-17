@@ -74,7 +74,7 @@ export default function CarsPage() {
                           <TableHead className="text-sky-900 font-semibold">{t('cars.model')}</TableHead>
                           <TableHead className="text-sky-900 font-semibold">{t('cars.year')}</TableHead>
                           <TableHead className="text-sky-900 font-semibold">{t('cars.price')}</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">{t('common.quantity')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('cars.quantity')}</TableHead>
                           <TableHead className="text-sky-900 font-semibold">{t('cars.location')}</TableHead>
                         </TableRow>
                       </TableHeader>
