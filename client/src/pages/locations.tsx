@@ -37,7 +37,7 @@ export default function LocationsPage() {
                 <div>
                   <h2 className="text-2xl font-bold tracking-tight">{t('locations.title')}</h2>
                   <p className="text-muted-foreground">
-                    {t('locations.description', 'Manage your business locations and facilities')}
+                    Manage your business locations and facilities
                   </p>
                 </div>
                 <Button className="flex items-center gap-2">
@@ -50,7 +50,7 @@ export default function LocationsPage() {
                 <CardHeader>
                   <CardTitle>{t('locations.title')}</CardTitle>
                   <CardDescription>
-                    {t('locations.listDescription', 'A list of all locations in your organization')}
+                    A list of all locations in your organization
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -69,12 +69,12 @@ export default function LocationsPage() {
                     <Table>
                       <TableHeader>
                         <TableRow className="bg-sky-100">
-                          <TableHead className="text-sky-900 font-semibold">{t('common.name')}</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">{t('locations.type')}</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">{t('locations.address')}</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">{t('locations.area')}</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">{t('locations.city')}</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">{t('locations.region')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.name', 'Name')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.type', 'Type')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.address', 'Address')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.area', 'Area')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.city', 'City')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.region', 'Region')}</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
