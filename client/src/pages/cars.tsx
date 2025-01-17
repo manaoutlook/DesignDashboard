@@ -19,9 +19,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useTranslation } from "react-i18next";
 
 export default function CarsPage() {
   const { data: cars, isLoading } = useCars();
+  const { t } = useTranslation();
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -33,22 +35,22 @@ export default function CarsPage() {
             <div className="h-full px-4 py-6 lg:px-8">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="text-2xl font-bold tracking-tight">Cars Inventory</h2>
+                  <h2 className="text-2xl font-bold tracking-tight">{t('cars.title')}</h2>
                   <p className="text-muted-foreground">
-                    Manage your vehicle inventory across all locations
+                    {t('cars.description')}
                   </p>
                 </div>
                 <Button className="flex items-center gap-2">
                   <Plus className="h-4 w-4" />
-                  Add Car
+                  {t('cars.actions.addNew')}
                 </Button>
               </div>
-              
+
               <Card className="mt-6">
                 <CardHeader>
-                  <CardTitle>All Cars</CardTitle>
+                  <CardTitle>{t('cars.filters.all')}</CardTitle>
                   <CardDescription>
-                    A list of all vehicles in your inventory
+                    {t('cars.listDescription')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -67,13 +69,13 @@ export default function CarsPage() {
                     <Table>
                       <TableHeader>
                         <TableRow className="bg-sky-100">
-                          <TableHead className="text-sky-900 font-semibold">VIN</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Make</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Model</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Year</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Price</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Quantity</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Location</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('cars.vinNumber')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('cars.manufacturer')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('cars.model')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('cars.year')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('cars.price')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('cars.quantity')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('cars.location')}</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
@@ -86,7 +88,10 @@ export default function CarsPage() {
                             <TableCell>{car.make}</TableCell>
                             <TableCell>{car.model}</TableCell>
                             <TableCell>{car.year}</TableCell>
-                            <TableCell>{car.price}</TableCell>
+                            <TableCell>{new Intl.NumberFormat('th-TH', {
+                              style: 'currency',
+                              currency: 'THB'
+                            }).format(car.price)}</TableCell>
                             <TableCell>{car.quantity}</TableCell>
                             <TableCell>{car.location?.name}</TableCell>
                           </TableRow>

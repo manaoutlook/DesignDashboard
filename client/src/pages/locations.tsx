@@ -19,9 +19,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useTranslation } from "react-i18next";
 
 export default function LocationsPage() {
   const { data: locations, isLoading } = useLocations();
+  const { t } = useTranslation();
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -33,22 +35,22 @@ export default function LocationsPage() {
             <div className="h-full px-4 py-6 lg:px-8">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="text-2xl font-bold tracking-tight">Locations</h2>
+                  <h2 className="text-2xl font-bold tracking-tight">{t('locations.title')}</h2>
                   <p className="text-muted-foreground">
-                    Manage your business locations and facilities
+                    {t('locations.description')}
                   </p>
                 </div>
                 <Button className="flex items-center gap-2">
                   <Plus className="h-4 w-4" />
-                  Add Location
+                  {t('locations.addLocation')}
                 </Button>
               </div>
-              
+
               <Card className="mt-6">
                 <CardHeader>
-                  <CardTitle>All Locations</CardTitle>
+                  <CardTitle>{t('locations.title')}</CardTitle>
                   <CardDescription>
-                    A list of all locations in your organization
+                    {t('locations.listDescription')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -67,12 +69,12 @@ export default function LocationsPage() {
                     <Table>
                       <TableHeader>
                         <TableRow className="bg-sky-100">
-                          <TableHead className="text-sky-900 font-semibold">Name</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Type</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Address</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Area</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">City</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Region</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('common.name')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.types.type')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.address')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.area')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.city')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.region')}</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
@@ -82,7 +84,7 @@ export default function LocationsPage() {
                             className="even:bg-gray-50"
                           >
                             <TableCell className="font-medium">{location.name}</TableCell>
-                            <TableCell>{location.locationType}</TableCell>
+                            <TableCell>{t(`locations.types.${location.locationType.toLowerCase()}`)}</TableCell>
                             <TableCell>{location.address}</TableCell>
                             <TableCell>{location.area}</TableCell>
                             <TableCell>{location.city}</TableCell>

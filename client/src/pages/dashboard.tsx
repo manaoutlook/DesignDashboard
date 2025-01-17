@@ -5,44 +5,45 @@ import { RevenueChart } from "@/components/dashboard/RevenueChart";
 import { ActivityList } from "@/components/dashboard/ActivityList";
 import { DataTable } from "@/components/dashboard/DataTable";
 import { Users, DollarSign, ShoppingCart, ArrowUpRight } from "lucide-react";
-import { useMetrics, type DashboardMetric } from "@/lib/api";
+import { useMetrics } from "@/lib/api";
 import { Skeleton } from "@/components/ui/skeleton";
 import { LucideIcon } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const iconMap: Record<string, LucideIcon> = {
-  "dollar-sign": DollarSign,
-  "users": Users,
-  "shopping-cart": ShoppingCart,
-  "arrow-up-right": ArrowUpRight,
+  "totalRevenue": DollarSign,
+  "activeUsers": Users,
+  "totalSales": ShoppingCart,
+  "realtimeUsers": ArrowUpRight,
 };
-
-const sampleData = [
-  {
-    id: 1,
-    name: "John Doe",
-    email: "john@example.com",
-    status: "active" as const,
-    lastActive: "2 hours ago"
-  },
-  {
-    id: 2,
-    name: "Jane Smith",
-    email: "jane@example.com",
-    status: "inactive" as const,
-    lastActive: "1 day ago"
-  },
-  {
-    id: 3,
-    name: "Bob Johnson",
-    email: "bob@example.com",
-    status: "active" as const,
-    lastActive: "3 days ago"
-  },
-];
-
 
 export default function Dashboard() {
   const { data: metrics, isLoading } = useMetrics();
+  const { t } = useTranslation();
+
+  const sampleData = [
+    {
+      id: 1,
+      name: "John Doe",
+      email: "john@example.com",
+      status: "active" as const,
+      lastActive: t('dashboard.activity.timeLabels.hoursAgo', { count: 2 })
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      status: "inactive" as const,
+      lastActive: t('dashboard.activity.timeLabels.hoursAgo', { count: 6 })
+    },
+    {
+      id: 3,
+      name: "Bob Johnson",
+      email: "bob@example.com",
+      status: "active" as const,
+      lastActive: t('dashboard.activity.timeLabels.hoursAgo', { count: 7 })
+    },
+  ];
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -64,22 +65,34 @@ export default function Dashboard() {
                       </div>
                     ))
                 ) : (
-                  metrics?.map((metric: DashboardMetric) => (
+                  metrics?.map((metric) => (
                     <OverviewCard
                       key={metric.id}
-                      title={metric.title}
+                      title={t(`dashboard.metrics.${metric.type}`)}
                       value={metric.value}
-                      description={metric.description}
-                      icon={iconMap[metric.icon] || DollarSign}
+                      description={t('dashboard.metrics.fromLastMonth')}
+                      icon={iconMap[metric.type] || DollarSign}
                       trend={metric.trend}
-                      trendValue={metric.trendValue}
+                      trendValue={t(`dashboard.metrics.percentage${metric.trend === 'up' ? 'Increase' : 'Decrease'}`, {
+                        value: metric.trendPercent
+                      })}
                     />
                   ))
                 )}
               </div>
               <div className="mt-6 grid gap-4 md:grid-cols-7">
-                <RevenueChart />
-                <ActivityList />
+                <div className="col-span-4">
+                  <h3 className="text-lg font-semibold mb-4">
+                    {t('dashboard.charts.revenueOverTime')}
+                  </h3>
+                  <RevenueChart />
+                </div>
+                <div className="col-span-3">
+                  <h3 className="text-lg font-semibold mb-4">
+                    {t('dashboard.activity.recentActivity')}
+                  </h3>
+                  <ActivityList />
+                </div>
               </div>
               <div className="mt-6">
                 <DataTable data={sampleData} isLoading={false} />

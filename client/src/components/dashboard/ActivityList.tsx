@@ -1,16 +1,19 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useActivities, type Activity } from "@/lib/api";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useTranslation } from "react-i18next";
 import { formatDistanceToNow } from "date-fns";
+import { th } from "date-fns/locale";
 
 export function ActivityList() {
   const { data: activities, isLoading } = useActivities();
+  const { t, i18n } = useTranslation();
 
   if (isLoading) {
     return (
       <Card className="col-span-3">
         <CardHeader>
-          <CardTitle>Recent Activity</CardTitle>
+          <CardTitle>{t('dashboard.activity.recentActivity')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -32,7 +35,7 @@ export function ActivityList() {
   return (
     <Card className="col-span-3">
       <CardHeader>
-        <CardTitle>Recent Activity</CardTitle>
+        <CardTitle>{t('dashboard.activity.recentActivity')}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -43,10 +46,15 @@ export function ActivityList() {
             >
               <div className="flex-1 space-y-1">
                 <p className="text-sm font-medium">{activity.userName}</p>
-                <p className="text-sm text-muted-foreground">{activity.action}</p>
+                <p className="text-sm text-muted-foreground">
+                  {t(`dashboard.activity.userActions.${activity.action.split('.').pop()}`)}
+                </p>
               </div>
               <div className="text-sm text-muted-foreground">
-                {formatDistanceToNow(new Date(activity.time), { addSuffix: true })}
+                {formatDistanceToNow(new Date(activity.time), { 
+                  addSuffix: true,
+                  locale: i18n.language === 'th' ? th : undefined 
+                })}
               </div>
             </div>
           ))}

@@ -19,9 +19,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Plus, AlertTriangle } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useTranslation } from "react-i18next";
 
 export default function SparePartsPage() {
   const { data: spareParts, isLoading } = useSpareParts();
+  const { t } = useTranslation();
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -33,22 +35,22 @@ export default function SparePartsPage() {
             <div className="h-full px-4 py-6 lg:px-8">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="text-2xl font-bold tracking-tight">Spare Parts</h2>
+                  <h2 className="text-2xl font-bold tracking-tight">{t('spareParts.title')}</h2>
                   <p className="text-muted-foreground">
-                    Manage your spare parts inventory across all locations
+                    {t('spareParts.description', 'Manage your spare parts inventory across all locations')}
                   </p>
                 </div>
                 <Button className="flex items-center gap-2">
                   <Plus className="h-4 w-4" />
-                  Add Spare Part
+                  {t('spareParts.addPart')}
                 </Button>
               </div>
-              
+
               <Card className="mt-6">
                 <CardHeader>
-                  <CardTitle>All Spare Parts</CardTitle>
+                  <CardTitle>{t('spareParts.title')}</CardTitle>
                   <CardDescription>
-                    A list of all spare parts in your inventory
+                    {t('spareParts.listDescription', 'A list of all spare parts in your inventory')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -67,13 +69,13 @@ export default function SparePartsPage() {
                     <Table>
                       <TableHeader>
                         <TableRow className="bg-sky-100">
-                          <TableHead className="text-sky-900 font-semibold">Part Number</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Name</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Manufacturer</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Price</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Quantity</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Alert Threshold</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">Location</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('spareParts.partNumber')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('spareParts.name')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('spareParts.manufacturer')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('spareParts.price')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('spareParts.quantity')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('spareParts.alertThreshold')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('spareParts.location')}</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
