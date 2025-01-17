@@ -3,14 +3,12 @@ import { createServer, type Server } from "http";
 import { db } from "@db";
 import { dashboardMetrics, revenueData, activities, locations, cars, spareParts } from "@db/schema";
 import { eq, desc, asc } from "drizzle-orm";
-import { formatTHB } from "@/lib/utils";
 
 export function registerRoutes(app: Express): Server {
   // Dashboard metrics endpoint
   app.get("/api/metrics", async (_req, res) => {
     try {
       const metrics = await db.query.dashboardMetrics.findMany();
-      // Format values that represent currency
       const formattedMetrics = metrics.map(metric => ({
         ...metric,
         value: metric.title.toLowerCase().includes('revenue') || metric.title.toLowerCase().includes('sales')
@@ -24,7 +22,8 @@ export function registerRoutes(app: Express): Server {
       }));
       res.json(formattedMetrics);
     } catch (error) {
-      res.status(500).json({ message: "Error fetching metrics" });
+      console.error("Error fetching metrics:", error);
+      res.status(500).json({ message: "Error fetching metrics", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -33,10 +32,15 @@ export function registerRoutes(app: Express): Server {
     try {
       const locationsList = await db.query.locations.findMany({
         orderBy: [desc(locations.updatedAt)],
+        with: {
+          cars: true,
+          spareParts: true
+        }
       });
       res.json(locationsList);
     } catch (error) {
-      res.status(500).json({ message: "Error fetching locations" });
+      console.error("Error fetching locations:", error);
+      res.status(500).json({ message: "Error fetching locations", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -45,7 +49,8 @@ export function registerRoutes(app: Express): Server {
       const newLocation = await db.insert(locations).values(req.body).returning();
       res.status(201).json(newLocation[0]);
     } catch (error) {
-      res.status(500).json({ message: "Error creating location" });
+      console.error("Error creating location:", error);
+      res.status(500).json({ message: "Error creating location", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -63,7 +68,8 @@ export function registerRoutes(app: Express): Server {
       }
       res.json(location);
     } catch (error) {
-      res.status(500).json({ message: "Error fetching location" });
+      console.error("Error fetching location:", error);
+      res.status(500).json({ message: "Error fetching location", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -89,7 +95,8 @@ export function registerRoutes(app: Express): Server {
 
       res.json(formattedCars);
     } catch (error) {
-      res.status(500).json({ message: "Error fetching cars" });
+      console.error("Error fetching cars:", error);
+      res.status(500).json({ message: "Error fetching cars", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -98,7 +105,8 @@ export function registerRoutes(app: Express): Server {
       const newCar = await db.insert(cars).values(req.body).returning();
       res.status(201).json(newCar[0]);
     } catch (error) {
-      res.status(500).json({ message: "Error creating car" });
+      console.error("Error creating car:", error);
+      res.status(500).json({ message: "Error creating car", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -126,7 +134,8 @@ export function registerRoutes(app: Express): Server {
 
       res.json(formattedCar);
     } catch (error) {
-      res.status(500).json({ message: "Error fetching car" });
+      console.error("Error fetching car:", error);
+      res.status(500).json({ message: "Error fetching car", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -152,7 +161,8 @@ export function registerRoutes(app: Express): Server {
 
       res.json(formattedSpareParts);
     } catch (error) {
-      res.status(500).json({ message: "Error fetching spare parts" });
+      console.error("Error fetching spare parts:", error);
+      res.status(500).json({ message: "Error fetching spare parts", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -161,7 +171,8 @@ export function registerRoutes(app: Express): Server {
       const newSparePart = await db.insert(spareParts).values(req.body).returning();
       res.status(201).json(newSparePart[0]);
     } catch (error) {
-      res.status(500).json({ message: "Error creating spare part" });
+      console.error("Error creating spare part:", error);
+      res.status(500).json({ message: "Error creating spare part", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -189,7 +200,8 @@ export function registerRoutes(app: Express): Server {
 
       res.json(formattedSparePart);
     } catch (error) {
-      res.status(500).json({ message: "Error fetching spare part" });
+      console.error("Error fetching spare part:", error);
+      res.status(500).json({ message: "Error fetching spare part", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -197,11 +209,12 @@ export function registerRoutes(app: Express): Server {
   app.get("/api/revenue", async (_req, res) => {
     try {
       const revenue = await db.query.revenueData.findMany({
-        orderBy: (revenueData, { asc }) => [asc(revenueData.month)],
+        orderBy: [asc(revenueData.month)],
       });
       res.json(revenue);
     } catch (error) {
-      res.status(500).json({ message: "Error fetching revenue data" });
+      console.error("Error fetching revenue:", error);
+      res.status(500).json({ message: "Error fetching revenue data", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -209,12 +222,13 @@ export function registerRoutes(app: Express): Server {
   app.get("/api/activities", async (_req, res) => {
     try {
       const recentActivities = await db.query.activities.findMany({
-        orderBy: (activities, { desc }) => [desc(activities.time)],
+        orderBy: [desc(activities.time)],
         limit: 5,
       });
       res.json(recentActivities);
     } catch (error) {
-      res.status(500).json({ message: "Error fetching activities" });
+      console.error("Error fetching activities:", error);
+      res.status(500).json({ message: "Error fetching activities", error: error instanceof Error ? error.message : String(error) });
     }
   });
 
