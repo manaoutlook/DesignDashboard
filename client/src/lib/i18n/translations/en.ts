@@ -35,6 +35,7 @@ export const enTranslations = {
       fromLastMonth: 'from last month',
       percentageIncrease: '{{value}}% increase',
       percentageDecrease: '{{value}}% decrease',
+      undefined: '', // Added missing key
     },
     charts: {
       revenueOverTime: 'Revenue Over Time',
