@@ -45,6 +45,7 @@ export const locations = pgTable("locations", {
   area: text("area").notNull(),
   city: text("city").notNull(),
   region: text("region").notNull(),
+  zipCode: text("zip_code").notNull(),
 });
 
 // Cars table
