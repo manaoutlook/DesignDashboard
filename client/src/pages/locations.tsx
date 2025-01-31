@@ -70,11 +70,12 @@ export default function LocationsPage() {
                       <TableHeader>
                         <TableRow className="bg-sky-100">
                           <TableHead className="text-sky-900 font-semibold">{t('common.name')}</TableHead>
-                          <TableHead className="text-sky-900 font-semibold">{t('locations.types.type')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.type')}</TableHead>
                           <TableHead className="text-sky-900 font-semibold">{t('locations.address')}</TableHead>
                           <TableHead className="text-sky-900 font-semibold">{t('locations.area')}</TableHead>
                           <TableHead className="text-sky-900 font-semibold">{t('locations.city')}</TableHead>
                           <TableHead className="text-sky-900 font-semibold">{t('locations.region')}</TableHead>
+                          <TableHead className="text-sky-900 font-semibold">{t('locations.zipCode')}</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
@@ -89,6 +90,7 @@ export default function LocationsPage() {
                             <TableCell>{location.area}</TableCell>
                             <TableCell>{location.city}</TableCell>
                             <TableCell>{location.region}</TableCell>
+                            <TableCell>{location.zipCode}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
